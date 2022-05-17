@@ -1,0 +1,104 @@
+.header {
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &--1 {
+      padding: 3rem 5rem;
+    }
+    &--2 {
+      padding: 0 5rem;
+      padding-bottom: 3rem;
+    }
+  }
+
+  &__logo {
+
+    &-img {
+      height: 5rem;
+    }
+  }
+
+  &__search {
+    display: flex;
+    gap: 2rem;
+
+    &-input {
+      width: 30rem;
+      padding: .7rem;
+
+      &:focus {
+        outline: none;
+      }
+
+      &::placeholder {
+
+      }
+    }
+  }
+
+  &__cart-icon {
+    height: 3rem;
+    width: 3rem;
+    transition: all .2s;
+
+    &:hover {
+      stroke: red;
+      cursor: pointer;
+      transform: translateY(-2px);
+    }
+  }
+
+  &__nav {
+
+    &-list {
+      list-style: none;
+      display: flex;
+      gap: 3rem;
+      font-size: 1.8rem;
+      font-weight: 400;
+
+      &-item {
+      }
+
+      &-item-link:link,
+      &-item-link:visited {
+        text-decoration: none;
+        color: black;
+        transition: all .3s;
+
+        &:hover {
+          color: red;
+        }
+      }
+    }
+  }
+
+  &__login {
+    span {
+      text-transform: uppercase;
+      font-size: 1.6rem;
+      display: block;
+      margin-right: 5rem;
+      font-weight: 400;
+
+    }
+    &-link:link,
+    &-link:visited {
+      text-decoration: none;
+      color: black;
+      transition: all .3s;
+
+      &:hover {
+        cursor: pointer;
+        color: red;
+      }
+    }
+  }
+}
+
+.active-link {
+  color: red;
+}

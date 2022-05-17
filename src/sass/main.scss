@@ -1,0 +1,10 @@
+@import "./base";
+@import "./typography";
+
+// components
+@import "./src/components/Header/style";
+@import "./src/components/Hero/style";
+@import "./src/components/Story/style";
+
+// pages
+@import "./src/pages/Main/style";

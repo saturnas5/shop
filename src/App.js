@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import './css/style.css';
+import {Routes, Route} from "react-router-dom";
+import Header from "./components/Header";
+import Main from "./pages/Main";
+import Kitchen from "./pages/Kitchen";
+import Kidsroom from "./pages/Kidsroom";
+import Badroom from "./pages/Badroom/";
+import Bathroom from "./pages/Bathroom";
+import LivingRoom from "./pages/LivingRoom";
 
-function App() {
+
+const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header/>
+      <Routes>
+          <Route exact path='/' element={<Main/>}/>
+          <Route path='/badroom' element={<Badroom/>} />
+          <Route exact path='/bathroom' element={<Bathroom/>}/>
+          <Route exact path='/kidsroom' element={<Kidsroom/>}/>
+          <Route exact path='/kitchen' element={<Kitchen/>}/>
+          <Route exact path='/livingroom' element={<LivingRoom/>}/>
+      </Routes>
     </div>
   );
 }
 
-export default App;
+export default () => {
+    return (
+
+            <App/>
+
+    )
+}
