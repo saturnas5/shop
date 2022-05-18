@@ -1,12 +1,16 @@
 import React from "react";
-import useFetch, {get} from '../../hooks/useFetch';
+import {useLocation, } from 'react-router-dom'
+
 
 const Badroom = () => {
-    const {get} = useFetch('https://dummyjson.com');
+    const location = useLocation();
+    console.log(location)
 
     return (
         <>
+            <div className="badroom-box">
 
+            </div>
         </>
     );
 }

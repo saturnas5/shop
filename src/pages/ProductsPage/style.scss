@@ -1,3 +1,25 @@
+.products {
+  display: grid;
+  grid-template-columns: 10vw 15% 1fr 10vw;
+
+  &__filter {
+    grid-column: 2 / 3;
+    padding: 10rem 0;
+    justify-self: center;
+  }
+
+  &__products-list {
+    grid-column: 3 / 4;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    grid-column-gap: 2rem;
+    grid-row-gap: 5rem;
+    padding: 10rem 4rem;
+    justify-items: center;
+  }
+
+}
+
 .product {
   display: flex;
   flex-direction: column;
@@ -74,4 +96,10 @@
     bottom: 6rem;
 
   }
+}
+
+.filter {
+  height: 30rem;
+  width: 20rem;
+  box-shadow: 0 1rem 4rem rgba(0,0,0, .1);
 }
