@@ -3,7 +3,17 @@ import createDataContext from "./createDataContext";
 const cartReducer = (state, action) => {
     switch (action.type) {
         case 'addToCart':
-            return {...state, cart: [...state.cart, action.payload]}
+            const existingProduct = state.cart.find(prod => prod.id === action.payload.id)
+            if(existingProduct) {
+                return {...state, cart: state.cart.map(item => {
+                    if(item.id === existingProduct.id) {
+                        return {...item, quantity: item.quantity + 1}
+                    }
+                    return item;
+                    })}
+            } else {
+                return {...state, cart: [...state.cart, {...action.payload, quantity: 1}]}
+            }
         default:
             return state;
     }
@@ -11,7 +21,7 @@ const cartReducer = (state, action) => {
 
 const addToCart = dispatch => {
     return (product) => {
-            dispatch({type: 'addToCart', payload: {...product, quantity: 1}})
+            dispatch({type: 'addToCart', payload: product})
     }
 }
 
