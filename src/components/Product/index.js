@@ -1,9 +1,11 @@
-import React from "react";
+import React, {useContext} from "react";
 import {Link, useRouteMatch} from 'react-router-dom';
 import {FiDollarSign, FiPackage} from "react-icons/fi";
+import {Context as CartContext} from '../../context/cartContext';
 
-const Product = ({title, images, price, id}) => {
+const Product = ({title, images, price, id, product}) => {
     const {url} = useRouteMatch();
+    const {addToCart} = useContext(CartContext)
 
     function trim(title) {
         return title.trim().replaceAll(' ', '-').toLowerCase();
@@ -20,7 +22,7 @@ const Product = ({title, images, price, id}) => {
                     <p className='product__stock'><FiPackage className='product__icon'/> 10</p>
                 </div>
                 </Link>
-                <button className="product__btn">
+                <button onClick={() => addToCart(product)} className="product__btn">
                     Cart
                 </button>
             </div>

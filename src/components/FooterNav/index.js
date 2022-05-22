@@ -10,9 +10,9 @@ const FooterNav = ({links, title, className, about}) => {
             <div className={`footer__${clas}`}>
                 <h4 className='footer__nav-box-title'>{title}</h4>
                 <ul className="footer__nav-box-list">
-                    {links.length > 0 ? links.map(link => {
+                    {links.length > 0 ? links.map((link, index) => {
                         return (
-                            <li className="footer__nav-box-list-item">
+                            <li key={index} className="footer__nav-box-list-item">
                                 <Link className='footer__nav-box-list-item-link' to='/'>{link}</Link>
                             </li>
                         );
