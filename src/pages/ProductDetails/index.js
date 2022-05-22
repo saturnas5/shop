@@ -5,7 +5,7 @@ import {useRouteMatch} from 'react-router-dom';
 
 const ProductDetails = () => {
     const {state, loadProduct} = useContext(ProductsContext);
-    const {addToCart} = useContext(CartContext);
+    const {addToCart, deleteProduct} = useContext(CartContext);
     const match = useRouteMatch();
     const [quantyti, setQuantyti] = useState(1);
     const [image, setImage] = useState('');
@@ -62,6 +62,7 @@ const ProductDetails = () => {
                     <button onClick={() => addToCart(state.product)} className="product-details__cta-cart-btn">Add to
                         cart
                     </button>
+                    <button onClick={() => deleteProduct(state.product)}>delete</button>
                 </div>
             </div>
         </div>

@@ -14,6 +14,8 @@ const cartReducer = (state, action) => {
             } else {
                 return {...state, cart: [...state.cart, {...action.payload, quantity: 1}]}
             }
+        case 'deleteProduct':
+            return {...state, cart: state.cart.filter(item => item.id !== action.payload.id)}
         default:
             return state;
     }
@@ -25,10 +27,28 @@ const addToCart = dispatch => {
     }
 }
 
+const deleteProduct = dispatch => {
+    return (product) => {
+        dispatch({type: 'deleteProduct', payload: product})
+    }
+}
+
+const increaseQuantity = dispatch => {
+    return () => {
+
+    }
+}
+
+const decreaseQuantity = dispatch => {
+    return () => {
+
+    }
+}
+
 
 export const {Provider, Context} = createDataContext(
     cartReducer,
-    {addToCart},
+    {addToCart, deleteProduct},
     {
         cart: [],
     }
