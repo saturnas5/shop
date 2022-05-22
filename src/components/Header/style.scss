@@ -24,6 +24,7 @@
   &__search {
     display: flex;
     gap: 2rem;
+    position: relative;
 
     &-input {
       width: 30rem;
@@ -47,7 +48,28 @@
     &:hover {
       stroke: red;
       cursor: pointer;
-      transform: translateY(-2px);
+    }
+
+    &-label {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 2rem;
+      width: 2rem;
+      position: absolute;
+      top: -10%;
+      right: -2%;
+      background-color: red;
+      padding: 1rem;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #ededed;
+      transition: all .2s;
+
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
 

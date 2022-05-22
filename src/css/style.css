@@ -33,7 +33,8 @@ body {
 
 .header__search {
   display: flex;
-  gap: 2rem; }
+  gap: 2rem;
+  position: relative; }
   .header__search-input {
     width: 30rem;
     padding: .7rem; }
@@ -46,8 +47,25 @@ body {
   transition: all .2s; }
   .header__cart-icon:hover {
     stroke: red;
-    cursor: pointer;
-    transform: translateY(-2px); }
+    cursor: pointer; }
+  .header__cart-icon-label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2rem;
+    width: 2rem;
+    position: absolute;
+    top: -10%;
+    right: -2%;
+    background-color: red;
+    padding: 1rem;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #ededed;
+    transition: all .2s; }
+    .header__cart-icon-label:hover {
+      cursor: pointer; }
 
 .header__nav-list {
   list-style: none;
@@ -255,6 +273,53 @@ body {
     position: absolute;
     bottom: 6rem; }
 
+.footer {
+  padding-top: 10rem;
+  background-color: #ededed;
+  display: grid;
+  grid-template-columns: 10vw repeat(auto-fit, minmax(20rem, 1fr)) 10vw;
+  grid-template-rows: 1fr 10rem;
+  justify-items: center; }
+  .footer__help-box {
+    grid-column: 2 / 3; }
+  .footer__catalog-box {
+    grid-column: 3 / 4; }
+  .footer__explore-box {
+    grid-column: 4 / 5; }
+  .footer__social-box {
+    grid-column: 5 / 6; }
+  .footer__about-box {
+    grid-column: 6 / 7; }
+  .footer__copyright {
+    grid-column: 2 / 3;
+    grid-row: 2 / -1;
+    padding-top: 5rem; }
+    .footer__copyright-text {
+      font-size: 1.3rem; }
+  .footer__nav-box-title {
+    font-size: 2rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 2rem; }
+  .footer__nav-box-list {
+    list-style: none; }
+    .footer__nav-box-list-item:not(:last-child) {
+      margin-bottom: .5rem; }
+    .footer__nav-box-list-item {
+      font-size: 1.6rem; }
+    .footer__nav-box-list-item-link:link, .footer__nav-box-list-item-link:visited {
+      text-decoration: none;
+      color: #333;
+      transition: all .3s; }
+      .footer__nav-box-list-item-link:link:hover, .footer__nav-box-list-item-link:visited:hover {
+        color: black;
+        cursor: pointer;
+        text-decoration: underline; }
+
+.footer__about-box-text {
+  font-size: 1.4rem; }
+
 .products {
   display: grid;
   grid-template-columns: 10vw 15% 1fr 10vw; }
@@ -334,3 +399,67 @@ body {
   height: 30rem;
   width: 20rem;
   box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.1); }
+
+.product-details {
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 10vw 1fr 1fr 10vw; }
+  .product-details__img {
+    width: 100%;
+    object-fit: cover; }
+  .product-details__img-box {
+    grid-column: 2 / 3;
+    padding: 4rem; }
+    .product-details__img-box-carousel {
+      display: flex;
+      gap: 1rem;
+      padding: 1rem 0; }
+      .product-details__img-box-carousel img {
+        width: 100%; }
+      .product-details__img-box-carousel-item:hover {
+        cursor: pointer; }
+  .product-details__info-box {
+    grid-column: 3 / 4;
+    padding: 4rem;
+    display: flex;
+    flex-direction: column; }
+  .product-details__title-heading {
+    font-size: 3.2rem;
+    font-weight: 400;
+    margin-bottom: 3rem; }
+  .product-details__price {
+    font-size: 2.2rem;
+    display: inline-block;
+    margin-bottom: 4rem; }
+  .product-details__description-title {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1rem; }
+  .product-details__description {
+    font-size: 1.6rem;
+    line-height: 1.6; }
+  .product-details__cta-cart {
+    margin-top: 5rem;
+    display: flex;
+    gap: 1rem; }
+    .product-details__cta-cart label {
+      background-color: gray;
+      height: 15px; }
+    .product-details__cta-cart-input {
+      font-size: 1.6rem;
+      font-family: inherit;
+      width: 20%;
+      text-align: center; }
+      .product-details__cta-cart-input:focus {
+        outline: none; }
+    .product-details__cta-cart-btn {
+      border: none;
+      background-color: black;
+      color: #ffffff;
+      font-family: inherit;
+      font-size: 1.8rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      padding: 1.5rem 5rem; }
+      .product-details__cta-cart-btn:hover {
+        cursor: pointer; }

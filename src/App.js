@@ -9,6 +9,10 @@ import Bathroom from "./pages/Bathroom";
 import LivingRoom from "./pages/LivingRoom";
 import ProductsPage from "./pages/ProductsPage";
 import {Provider as ProductsProvider} from "./context/productsContext";
+import {Provider as CartProvider} from "./context/cartContext";
+import ProductDetails from "./pages/ProductDetails";
+import Footer from "./components/Footer";
+import NotFound from "./pages/NotFound";
 
 
 const App = () => {
@@ -34,16 +38,26 @@ const App = () => {
           <Route exact path='/livingroom'>
               <LivingRoom/>
           </Route>
+          <Route exact path='/:category/:name/:id'>
+              <ProductDetails/>
+          </Route>
+
+          <Route>
+              <NotFound/>
+          </Route>
       </Switch>
+        <Footer/>
     </div>
   );
 }
 
 export default () => {
     return (
+        <CartProvider>
         <ProductsProvider>
             <App/>
         </ProductsProvider>
+        </CartProvider>
 
     )
 }

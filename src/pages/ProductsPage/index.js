@@ -20,9 +20,11 @@ const ProductsPage = ({path, url}) => {
                 <div className="products__products-list">
                     {state.products.map(product => {
                         return <Product
+                            key={product.id}
                             title={product.title}
                             price={product.price}
                             images={product.images}
+                            id={product.id}
                         />
                     })}
                 </div>

@@ -1,0 +1,67 @@
+.footer {
+  padding-top: 10rem;
+  background-color: #ededed;
+  display: grid;
+  grid-template-columns: 10vw repeat(auto-fit, minmax(20rem, 1fr)) 10vw;
+  grid-template-rows: 1fr 10rem;
+  justify-items: center;
+
+  &__help-box {
+    grid-column: 2 / 3;
+  }
+  &__catalog-box {
+    grid-column: 3 / 4;
+  }
+  &__explore-box {
+    grid-column: 4 / 5;
+  }
+  &__social-box {
+    grid-column: 5 / 6;
+  }
+  &__about-box {
+    grid-column: 6 / 7;
+  }
+  &__copyright {
+    grid-column: 2 / 3;
+    grid-row: 2 / -1;
+    padding-top: 5rem;
+
+    &-text {
+      font-size: 1.3rem;
+    }
+  }
+
+  &__nav-box-title {
+    font-size: 2rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+  }
+
+  &__nav-box-list {
+    list-style: none;
+
+    &-item:not(:last-child) {
+      margin-bottom: .5rem;
+    }
+
+    &-item {
+      font-size: 1.6rem;
+    }
+
+    &-item-link:link,
+    &-item-link:visited {
+      text-decoration: none;
+      color: #333;
+      transition: all .3s;
+
+      &:hover {
+        color: black;
+        cursor: pointer;
+        text-decoration: underline;
+      }
+    }
+  }
+
+}

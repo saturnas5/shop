@@ -1,0 +1,97 @@
+.product-details {
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 10vw 1fr 1fr 10vw;
+
+  &__img {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  &__img-box {
+    grid-column: 2 / 3;
+    padding: 4rem;
+
+    &-carousel {
+      display: flex;
+      gap: 1rem;
+      padding: 1rem 0;
+
+      & img {
+        width: 100%;
+      }
+
+      &-item:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__info-box {
+    grid-column: 3 / 4;
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title-heading {
+    font-size: 3.2rem;
+    font-weight: 400;
+    margin-bottom: 3rem;
+  }
+
+  &__price {
+    font-size: 2.2rem;
+    display: inline-block;
+    margin-bottom: 4rem;
+  }
+
+  &__description-title {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  &__description {
+    font-size: 1.6rem;
+    line-height: 1.6;
+  }
+
+  &__cta-cart {
+    margin-top: 5rem;
+    display: flex;
+    gap: 1rem;
+
+    & label {
+      background-color: gray;
+      height: 15px;
+
+    }
+
+    &-input {
+      font-size: 1.6rem;
+      font-family: inherit;
+      width: 20%;
+      text-align: center;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    &-btn {
+      border: none;
+      background-color: black;
+      color: #ffffff;
+      font-family: inherit;
+      font-size: 1.8rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      padding: 1.5rem 5rem;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
