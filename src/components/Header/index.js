@@ -17,7 +17,7 @@ const Header = () => {
                     </div>
                     <div className="header__search">
                         <input className='header__search-input' type="text" placeholder='Search'/>
-                        <FiShoppingCart className='header__cart-icon'/>
+                        <Link className='header__cart-icon-link' to='/cart'><FiShoppingCart className='header__cart-icon'/></Link>
                         <span className="header__cart-icon-label">{state.cart.length}</span>
                     </div>
                 </div>

@@ -62,7 +62,6 @@ const ProductDetails = () => {
                     <button onClick={() => addToCart(state.product)} className="product-details__cta-cart-btn">Add to
                         cart
                     </button>
-                    <button onClick={() => deleteProduct(state.product)}>delete</button>
                 </div>
             </div>
         </div>

@@ -45,6 +45,11 @@
     width: 3rem;
     transition: all .2s;
 
+    &-link {
+      text-decoration: none;
+      color: black;
+    }
+
     &:hover {
       stroke: red;
       cursor: pointer;

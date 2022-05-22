@@ -2,6 +2,7 @@ import React, {useEffect, useContext} from "react";
 import {useRouteMatch} from 'react-router-dom';
 import {Context as ProductsContext} from "../../context/productsContext";
 import Product from "../../components/Product";
+import Filter from "../../components/Filter";
 
 const ProductsPage = ({path, url}) => {
     const match = useRouteMatch();
@@ -15,7 +16,7 @@ const ProductsPage = ({path, url}) => {
         <>
             <div className="products">
                 <div className="products__filter">
-                    <div className="filter"></div>
+                    <Filter/>
                 </div>
                 <div className="products__products-list">
                     {state.products.map(product => {

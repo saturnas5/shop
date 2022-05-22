@@ -45,6 +45,9 @@ body {
   height: 3rem;
   width: 3rem;
   transition: all .2s; }
+  .header__cart-icon-link {
+    text-decoration: none;
+    color: black; }
   .header__cart-icon:hover {
     stroke: red;
     cursor: pointer; }

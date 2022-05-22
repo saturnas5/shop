@@ -6,6 +6,10 @@ const productsReducer = (state, action) => {
             return {...state, products: action.payload}
         case 'loadProduct':
             return {...state, product: action.payload}
+        case 'sortAscending':
+            return {...state, products: state.products.sort((a, b) => a.price - b.price)}
+        case 'sortDescending':
+            return {...state, products: state.products.sort((a, b) => b.price - a.price)}
         default:
             return state;
     }
@@ -35,9 +39,15 @@ const loadProduct = dispatch => {
     }
 }
 
+const sortByPrice = dispatch => {
+    return (option) => {
+        dispatch({type: option})
+    }
+}
+
 export const {Provider, Context} = createDataContext(
     productsReducer,
-    {loadProducts, loadProduct},
+    {loadProducts, loadProduct, sortByPrice},
     {
         products: [],
         product: {}

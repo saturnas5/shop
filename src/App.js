@@ -13,6 +13,7 @@ import {Provider as CartProvider} from "./context/cartContext";
 import ProductDetails from "./pages/ProductDetails";
 import Footer from "./components/Footer";
 import NotFound from "./pages/NotFound";
+import Cart from "./pages/Cart";
 
 
 const App = () => {
@@ -40,6 +41,9 @@ const App = () => {
           </Route>
           <Route exact path='/:category/:name/:id'>
               <ProductDetails/>
+          </Route>
+          <Route exact path='/cart'>
+              <Cart/>
           </Route>
 
           <Route>
