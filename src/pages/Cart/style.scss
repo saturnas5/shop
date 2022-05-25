@@ -1,0 +1,101 @@
+.cart {
+  display: grid;
+  grid-template-columns: 10vw repeat(5, 1fr) 10vw;
+
+  &__product-box {
+    grid-column: 2 / 5;
+    padding-right: 2rem;
+    padding-bottom: 15rem;
+    padding-top: 5rem;
+  }
+
+  &__cart-title {
+    margin-bottom: 5rem;
+    font-size: 3rem;
+  }
+
+  &__cart-table {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+
+    &-header {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-column: 1 / -1;
+      justify-items: center;
+      font-size: 1.6rem;
+      border: 1px solid grey;
+      padding: 2rem 3rem;
+
+      &-product {
+        grid-column: 1 / 2;
+      }
+      &-price {
+        grid-column: 2 / 3;
+      }
+      &-quantity {
+        grid-column: 3 / 4;
+      }
+      &-subtotal {
+        grid-column: 4 / 5;
+      }
+    }
+
+    &-data {
+      grid-column: 1 / -1;
+      border-bottom: 1px solid grey;
+
+      &-product {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        padding: 2rem 3rem;
+        justify-items: center;
+        font-size: 1.4rem;
+
+        &-name {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+
+          & img {
+            width: 30%;
+            display: block;
+          }
+        }
+      }
+    }
+  }
+
+  &__cart-total {
+    font-size: 2rem;
+    font-weight: 500;
+    grid-column: 4 / 5;
+    justify-self: center;
+    padding: 2rem 0;
+  }
+
+  &__cart-info {
+    grid-column: 5 / 7;
+    justify-self: end;
+    padding-left: 2rem;
+    padding-top: 5rem;
+    font-size: 1.6rem;
+
+    &-text {
+      margin-bottom: 2rem;
+    }
+
+    &-checkout {
+      text-decoration: none;
+      background-color: black;
+      color: #ffffff;
+      padding: 1rem 3rem;
+      font-size: 1.8rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+  }
+}

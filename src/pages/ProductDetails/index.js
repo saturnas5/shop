@@ -66,18 +66,18 @@ const ProductDetails = () => {
                     </button>
                 </div>
             </div>
-            <div className="product-details__more-info">
-                <Link to={`${match.url}/details`}>testas</Link>
-                <Link to={`${match.url}/reviews`}>testas2</Link>
-                <Switch>
-                    <Route exact path={`${match.path}/details`}>
-                        <p>labas</p>
-                    </Route>
-                    <Route exact path={`${match.path}/reviews`}>
-                        <p>ate</p>
-                    </Route>
-                </Switch>
-            </div>
+            {/*<div className="product-details__more-info">*/}
+            {/*    <Link to={`${match.url}/details`}>testas</Link>*/}
+            {/*    <Link to={`${match.url}/reviews`}>testas2</Link>*/}
+            {/*    <Switch>*/}
+            {/*        <Route path={`${match.path}/details`}>*/}
+            {/*            <p>labas</p>*/}
+            {/*        </Route>*/}
+            {/*        <Route exact path={`${match.path}/reviews`}>*/}
+            {/*            <p>ate</p>*/}
+            {/*        </Route>*/}
+            {/*    </Switch>*/}
+            {/*</div>*/}
         </div>
     </>
     );
