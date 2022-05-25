@@ -14,7 +14,7 @@ const Product = ({title, images, price, id, product}) => {
     return (
         <>
             <div className="product">
-                <Link to={`${url}/${trim(title)}/${id}`}>
+                <Link className='product__link' to={`${url}/${trim(title)}/${id}`}>
                 <img className='product__img' src={images[0]} alt={title}/>
                 <p className="product__name">{title}</p>
                 <div className="product__info">

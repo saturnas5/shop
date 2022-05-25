@@ -8,6 +8,14 @@
   position: relative;
   justify-items: center;
   align-items: center;
+  position: relative;
+
+  &__link:link,
+  &__link:visited {
+    text-decoration: none;
+    color: black;
+    text-align: center;
+  }
 
   &:hover {
     cursor: pointer;
@@ -31,6 +39,7 @@
     display: inline-block;
     font-size: 1.8rem;
     padding-top: 1rem;
+    padding: 0 1rem;
   }
 
   &__info {
@@ -40,6 +49,10 @@
     align-items: center;
     justify-content: center;
     padding-top: 1rem;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   &__price {
