@@ -154,7 +154,10 @@ body {
       color: #fff;
       letter-spacing: 1px;
       line-height: 1.6;
-      display: inline-block; }
+      display: inline-block;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%); }
 
 .story {
   display: grid;
@@ -437,22 +440,6 @@ body {
     background-color: #ffffff;
     padding: 0 .5rem; }
 
-.stripe-checkout {
-  border: none;
-  background-color: black;
-  color: #ffffff;
-  padding: 1.5rem 4rem;
-  font-size: 1.6rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  transition: all .2s; }
-  .stripe-checkout:hover {
-    cursor: pointer;
-    transform: translateY(-2px); }
-  .stripe-checkout:active {
-    transform: translateY(0); }
-
 .products {
   display: grid;
   grid-template-columns: 10vw 15% 1fr 10vw; }
@@ -467,7 +454,8 @@ body {
     grid-column-gap: 2rem;
     grid-row-gap: 5rem;
     padding: 10rem 4rem;
-    justify-items: center; }
+    justify-items: center;
+    position: relative; }
 
 .product {
   display: flex;
@@ -532,6 +520,26 @@ body {
   height: 30rem;
   width: 20rem;
   box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.1); }
+
+.scroll-btn {
+  position: fixed;
+  top: 85%;
+  right: 4%;
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  border: none;
+  background-color: black;
+  transition: all .2s; }
+  .scroll-btn-icon {
+    stroke: #ffffff;
+    height: 5rem;
+    width: 5rem; }
+  .scroll-btn:hover {
+    cursor: pointer;
+    transform: translateY(-2px); }
+  .scroll-btn:active {
+    transform: translateY(0); }
 
 .product-details {
   margin: 0 auto;

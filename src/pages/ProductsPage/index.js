@@ -3,6 +3,7 @@ import {useRouteMatch} from 'react-router-dom';
 import {Context as ProductsContext} from "../../context/productsContext";
 import Product from "../../components/Product";
 import Filter from "../../components/Filter";
+import { FiChevronUp } from "react-icons/fi";
 
 const ProductsPage = ({path, url}) => {
     const match = useRouteMatch();
@@ -10,7 +11,23 @@ const ProductsPage = ({path, url}) => {
     const [offset, setOffset] = useState(0);
     const [minPrice, setMinPrice] = useState(0);
     const [maxPrice, setMaxPrice] = useState(10000)
-    console.log(state)
+    const [visible, setVisible] = useState(false)
+
+    const toggleVisible = () => {
+        const scrolled = document.documentElement.scrollTop;
+        if(scrolled > 300) {
+            setVisible(true)
+        } else if(scrolled <= 300) {
+            setVisible(false)
+        }
+    }
+
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    };
 
     const handleScroll = (e) => {
         if(window.innerHeight + e.target.documentElement.scrollTop >= e.target.documentElement.scrollHeight - 400) {
@@ -27,6 +44,7 @@ const ProductsPage = ({path, url}) => {
     useEffect(() => {
         loadProducts(offset);
         window.addEventListener('scroll', handleScroll)
+        window.addEventListener('scroll', toggleVisible)
     }, [offset])
 
     return (
@@ -46,6 +64,7 @@ const ProductsPage = ({path, url}) => {
                                 product={product}
                                 />
                     })}
+                    <button style={{display: visible ? 'inline' : 'none'}} className='scroll-btn' onClick={scrollToTop}><FiChevronUp className='scroll-btn-icon'/></button>
                 </div>
             </div>}
         </>
