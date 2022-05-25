@@ -3,6 +3,14 @@
   display: grid;
   grid-template-columns: 10vw 1fr 1fr 10vw;
 
+  @media only screen and (max-width: 62.5em) {
+    grid-template-columns: 5vw 1fr 1fr 5vw;
+  }
+  @media only screen and (max-width: 50em) {
+    display: flex;
+    flex-direction: column;
+  }
+
   &__img {
     width: 100%;
     object-fit: cover;
@@ -12,13 +20,34 @@
     grid-column: 2 / 3;
     padding: 4rem;
 
+    @media only screen and (max-width: 62.5em) {
+      padding: 3rem;
+    }
+
+    @media only screen and (max-width: 56.25em) {
+      padding: 1rem;
+    }
+
+    @media only screen and (max-width: 50em) {
+      padding: 3rem;
+    }
+
     &-carousel {
       display: flex;
+      justify-content: center;
       gap: 1rem;
       padding: 1rem 0;
 
+      @media only screen and (max-width: 56.25em) {
+        gap: .5rem;
+        padding: .5rem 0;
+      }
+
       & img {
-        width: 100%;
+        width: 32%;
+        display: block;
+        object-fit: cover;
+
       }
 
       &-item:hover {
@@ -32,6 +61,18 @@
     padding: 4rem;
     display: flex;
     flex-direction: column;
+
+    @media only screen and (max-width: 62.5em) {
+      padding: 3rem;
+    }
+
+    @media only screen and (max-width: 56.25em) {
+      padding: 1rem;
+    }
+
+    @media only screen and (max-width: 50em) {
+      padding: 3rem;
+    }
   }
 
   &__title-heading {
@@ -93,5 +134,10 @@
         cursor: pointer;
       }
     }
+  }
+
+  &__more-info {
+    grid-column: 2 / 4;
+    padding: 4rem;
   }
 }

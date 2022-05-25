@@ -36,10 +36,10 @@ const App = () => {
           <Route exact path='/kitchen'>
               <Kitchen/>
           </Route>
-          <Route exact path='/livingroom'>
-              <LivingRoom/>
+          <Route exact path='/livingroom' params={{section: 'livingroom'}}>
+              <ProductsPage/>
           </Route>
-          <Route exact path='/:category/:name/:id'>
+          <Route path='/:category/:name/:id'>
               <ProductDetails/>
           </Route>
           <Route exact path='/cart'>

@@ -1,19 +1,20 @@
 import React, {useContext, useEffect, useState} from "react";
 import {Context as ProductsContext} from "../../context/productsContext";
 import {Context as CartContext} from "../../context/cartContext";
-import {useRouteMatch} from 'react-router-dom';
+import {useRouteMatch, Switch, Route, Link} from 'react-router-dom';
 
 const ProductDetails = () => {
     const {state, loadProduct} = useContext(ProductsContext);
     const {addToCart, deleteProduct} = useContext(CartContext);
     const match = useRouteMatch();
-    const [quantyti, setQuantyti] = useState(1);
+    const [quantity, setQuantity] = useState(1);
     const [image, setImage] = useState('');
 
     useEffect(() => {
         loadProduct(match.params.id)
         setImage('')
     }, [match]);
+
     useEffect(() => {
         setTimeout(() => {
             setImage(state.product.images[0])
@@ -21,7 +22,7 @@ const ProductDetails = () => {
     }, [match, state.product.images])
 
     if(state.product.length < 1) {
-       return null;
+       return <p>loading</p>;
     }
     return (
     <>
@@ -32,7 +33,8 @@ const ProductDetails = () => {
                     {state.product.images && state.product.images.map((image, index) => {
                         return <img
                                     className='product-details__img-box-carousel-item'
-                                    src={image} alt=""
+                                    src={image}
+                                    alt={`${state.product.title} image-${index + 1}`}
                                     key={index}
                                     onClick={() => setImage(image)}
                         />
@@ -56,13 +58,25 @@ const ProductDetails = () => {
                     <input
                         type="number"
                         className="product-details__cta-cart-input"
-                        value={quantyti}
-                        onChange={e => setQuantyti(e.target.value)}
+                        value={quantity}
+                        onChange={e => setQuantity(e.target.value)}
                     />
                     <button onClick={() => addToCart(state.product)} className="product-details__cta-cart-btn">Add to
                         cart
                     </button>
                 </div>
+            </div>
+            <div className="product-details__more-info">
+                <Link to={`${match.url}/details`}>testas</Link>
+                <Link to={`${match.url}/reviews`}>testas2</Link>
+                <Switch>
+                    <Route exact path={`${match.path}/details`}>
+                        <p>labas</p>
+                    </Route>
+                    <Route exact path={`${match.path}/reviews`}>
+                        <p>ate</p>
+                    </Route>
+                </Switch>
             </div>
         </div>
     </>

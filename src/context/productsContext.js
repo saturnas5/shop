@@ -3,7 +3,7 @@ import createDataContext from "./createDataContext";
 const productsReducer = (state, action) => {
     switch (action.type) {
         case 'loadProducts':
-            return {...state, products: action.payload}
+            return {...state, products: [...state.products, ...action.payload]}
         case 'loadProduct':
             return {...state, product: action.payload}
         case 'sortAscending':
@@ -16,9 +16,9 @@ const productsReducer = (state, action) => {
 }
 
 const loadProducts = dispatch => {
-    return async () => {
+    return async (offset) => {
         try {
-            const response = await fetch('https://api.escuelajs.co/api/v1/products?offset=0&limit=15');
+            const response = await fetch(`https://api.escuelajs.co/api/v1/products?offset=${offset}&limit=15`);
             const data = await response.json();
             dispatch({type: 'loadProducts', payload: data})
         } catch (err) {
