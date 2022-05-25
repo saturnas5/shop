@@ -357,6 +357,76 @@ body {
 .footer__about-box-text {
   font-size: 1.4rem; }
 
+.filter {
+  padding: 1rem .3rem;
+  position: relative; }
+  .filter__sort-select {
+    padding: 1rem 1.5rem;
+    border: 1px solid grey;
+    background-color: transparent;
+    width: 100%; }
+    .filter__sort-select-label {
+      position: absolute;
+      top: 1%;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #ffffff;
+      padding: 0 .5rem;
+      font-size: 1.2rem; }
+  .filter__price-filter {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 2rem;
+    position: relative; }
+    .filter__price-filter-btn {
+      border: none;
+      padding: 1rem 1.5rem;
+      background-color: black;
+      color: #ffffff;
+      font-size: 1.6rem;
+      letter-spacing: 1px;
+      transition: all .2s; }
+      .filter__price-filter-btn:hover {
+        cursor: pointer;
+        transform: translateY(-2px); }
+      .filter__price-filter-btn:active {
+        transform: translateY(0); }
+  .filter__min-price-input {
+    width: 5rem;
+    padding: 1rem;
+    font-size: 1.5rem; }
+    .filter__min-price-input:focus {
+      outline: none; }
+    .filter__min-price-input::-webkit-outer-spin-button, .filter__min-price-input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0; }
+    .filter__min-price-input[type=number] {
+      -moz-appearance: textfield; }
+  .filter__min-price-label {
+    position: absolute;
+    top: -15%;
+    left: 8%;
+    background-color: #ffffff;
+    padding: 0 .5rem; }
+  .filter__max-price-input {
+    width: 5rem;
+    padding: 1rem;
+    font-size: 1.5rem; }
+    .filter__max-price-input:focus {
+      outline: none; }
+    .filter__max-price-input::-webkit-outer-spin-button, .filter__max-price-input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0; }
+    .filter__max-price-input[type=number] {
+      -moz-appearance: textfield; }
+  .filter__max-price-label {
+    position: absolute;
+    top: -15%;
+    right: 46%;
+    background-color: #ffffff;
+    padding: 0 .5rem; }
+
 .products {
   display: grid;
   grid-template-columns: 10vw 15% 1fr 10vw; }

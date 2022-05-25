@@ -21,18 +21,19 @@ const Filter = ({ setMaxPrice, setMinPrice }) => {
     return (
         <>
             <div className="filter">
-                <label>
-                    Sort by:
-                <select onChange={(e) => sortByPrice(e.target.value)}>
+                <select id='sort-select' className='filter__sort-select' onChange={(e) => sortByPrice(e.target.value)}>
                     <option>Select option</option>
                     <option value="sortDescending">Price Descending</option>
                     <option value="sortAscending">Price Ascending</option>
                 </select>
-                </label>
-                <form onSubmit={e => handlePriceFilterSubmit(e)}>
-                    <input value={min} onChange={e => setMin(e.target.value)} type="number"/>
-                    <input value={max} onChange={e => setMax(e.target.value)} type="number"/>
-                    <input type="submit" value='Filter'/>
+                <label className='filter__sort-select-label' htmlFor='sort-select'>Sort by</label>
+                <form className='filter__price-filter' onSubmit={e => handlePriceFilterSubmit(e)}>
+                    <input className='filter__min-price-input' value={min} onChange={e => setMin(e.target.value)} type="number" id='min-price'/>
+                    <label className='filter__min-price-label' htmlFor="min-price">Min</label>
+                    <div className="filter__price-separator"></div>
+                    <input className='filter__max-price-input' value={max} onChange={e => setMax(e.target.value)} type="number" id='max-price'/>
+                    <label className='filter__max-price-label' htmlFor="max-price">Max</label>
+                    <input className='filter__price-filter-btn' type="submit" value='Filter'/>
                 </form>
             </div>
         </>
