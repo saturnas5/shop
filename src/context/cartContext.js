@@ -7,12 +7,12 @@ const cartReducer = (state, action) => {
             if(existingProduct) {
                 return {...state, cart: state.cart.map(item => {
                     if(item.id === existingProduct.id) {
-                        return {...item, quantity: item.quantity + 1}
+                        return {...item, quantity: Number.parseInt(item.quantity) + Number.parseInt(action.payload.quantity)}
                     }
                     return item;
                     })}
             } else {
-                return {...state, cart: [...state.cart, {...action.payload, quantity: 1}]}
+                return {...state, cart: [...state.cart, {...action.payload, quantity: Number.parseInt(action.payload.quantity)}]}
             }
         case 'deleteProduct':
             return {...state, cart: state.cart.filter(item => item.id !== action.payload.id)}
@@ -22,8 +22,8 @@ const cartReducer = (state, action) => {
 }
 
 const addToCart = dispatch => {
-    return (product) => {
-            dispatch({type: 'addToCart', payload: product})
+    return (product, quantity) => {
+            dispatch({type: 'addToCart', payload: {...product, quantity: quantity}})
     }
 }
 

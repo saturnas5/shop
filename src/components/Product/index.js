@@ -22,7 +22,7 @@ const Product = ({title, images, price, id, product}) => {
                     <p className='product__stock'><FiPackage className='product__icon'/> 10</p>
                 </div>
                 </Link>
-                <button onClick={() => addToCart(product)} className="product__btn">
+                <button onClick={() => addToCart(product, 1)} className="product__btn">
                     Cart
                 </button>
             </div>

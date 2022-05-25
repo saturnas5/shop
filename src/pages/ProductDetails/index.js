@@ -61,7 +61,7 @@ const ProductDetails = () => {
                         value={quantity}
                         onChange={e => setQuantity(e.target.value)}
                     />
-                    <button onClick={() => addToCart(state.product)} className="product-details__cta-cart-btn">Add to
+                    <button onClick={() => addToCart(state.product, quantity)} className="product-details__cta-cart-btn">Add to
                         cart
                     </button>
                 </div>
