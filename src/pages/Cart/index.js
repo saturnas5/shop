@@ -1,9 +1,28 @@
 import React, {useContext} from "react";
 import {Context as CartContext} from '../../context/cartContext';
-import {Link} from 'react-router-dom';
+import {loadStripe} from "@stripe/stripe-js";
 
 const Cart = () => {
     const {state: {cart}} = useContext(CartContext);
+    const stripeLoadedPromise = loadStripe('pk_test_51I8TOiDe9aGghQptwisV4wiyScKC7rmZoWsVMLHGlCzTKlysIqjGppVypcchS5xvVbwu911hQMZHEnLKs5KV1f3x004repFDGg')
+
+    function handleClick(event) {
+        stripeLoadedPromise.then(stripe => {
+            stripe.redirectToCheckout({
+                lineItems: [{
+                    price: 'price_1KL42PDe9aGghQptrZZTyUwQ',
+                    quantity: 1,
+                }],
+                mode: 'payment',
+                successUrl: 'https://www.google.com',
+                cancelUrl: 'https://www.google.com',
+            }).then(response => {
+                console.log(response.error);
+            }).catch(error => {
+                console.log(error);
+            });
+        });
+    }
 
     let totalPrice = cart.reduce((total, item) => {
         return total + item.quantity * item.price
@@ -63,7 +82,8 @@ const Cart = () => {
                     <div className="cart__cart-info-text">
                         <span>Total order sum: {totalPrice + 5.99}</span>
                     </div>
-                    <Link className="cart__cart-info-checkout" to='/'>checkout</Link>
+                    <button onClick={(e) => handleClick(e)}>pay</button>
+                    {/*<StripeCheckOutButton price={totalPrice + 5.99}/>*/}
                 </div>
             </div>
         </>
