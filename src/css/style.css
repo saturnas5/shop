@@ -709,3 +709,23 @@ body {
       font-weight: 500;
       letter-spacing: 1px;
       text-transform: uppercase; }
+  .cart__qty-span {
+    display: flex;
+    gap: .8rem; }
+  .cart__qty-icon {
+    width: 1.8rem;
+    height: 1.8rem; }
+    .cart__qty-icon:hover {
+      cursor: pointer; }
+    .cart__qty-icon:active {
+      transform: scale(0.9); }
+  .cart__sub-span {
+    display: flex;
+    gap: 1rem; }
+  .cart__trash-icon {
+    width: 1.5rem;
+    height: 1.5rem; }
+    .cart__trash-icon:hover {
+      cursor: pointer; }
+    .cart__trash-icon:active {
+      transform: scale(0.9); }

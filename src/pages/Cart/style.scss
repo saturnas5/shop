@@ -98,4 +98,37 @@
     }
 
   }
+
+  &__qty-span {
+    display: flex;
+    gap: .8rem;
+  }
+
+  &__qty-icon {
+    width: 1.8rem;
+    height: 1.8rem;
+
+    &:hover {
+      cursor: pointer;
+    }
+    &:active {
+      transform: scale(.9);
+    }
+  }
+
+  &__sub-span {
+    display: flex;
+    gap: 1rem;
+  }
+  &__trash-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+
+    &:hover {
+      cursor: pointer;
+    }
+    &:active {
+      transform: scale(.9);
+    }
+  }
 }

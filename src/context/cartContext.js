@@ -16,6 +16,28 @@ const cartReducer = (state, action) => {
             }
         case 'deleteProduct':
             return {...state, cart: state.cart.filter(item => item.id !== action.payload.id)}
+        case 'increaseQuantity':
+            const existing = state.cart.find(prod => prod.id === action.payload)
+            if(existing) {
+                return {...state, cart: state.cart.map(item => {
+                    if(item.id === existing.id) {
+                        return {...item, quantity: item.quantity + 1}
+                    }
+                    return item;
+                    })}
+            }
+        case 'decreaseQuantity':
+            const exist = state.cart.find(prod => prod.id === action.payload)
+            if(exist) {
+                return {...state, cart: state.cart.map(item => {
+                        if(item.id === exist.id) {
+                            if(item.quantity > 1) {
+                                return {...item, quantity: item.quantity - 1}
+                            }
+                        }
+                        return item;
+                    })}
+            }
         default:
             return state;
     }
@@ -34,21 +56,21 @@ const deleteProduct = dispatch => {
 }
 
 const increaseQuantity = dispatch => {
-    return () => {
-
+    return (id) => {
+        dispatch({type: 'increaseQuantity', payload: id})
     }
 }
 
 const decreaseQuantity = dispatch => {
-    return () => {
-
+    return (id) => {
+        dispatch({type: 'decreaseQuantity', payload: id})
     }
 }
 
 
 export const {Provider, Context} = createDataContext(
     cartReducer,
-    {addToCart, deleteProduct},
+    {addToCart, deleteProduct, increaseQuantity, decreaseQuantity},
     {
         cart: [],
     }

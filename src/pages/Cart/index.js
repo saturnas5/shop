@@ -1,9 +1,10 @@
 import React, {useContext} from "react";
 import {Context as CartContext} from '../../context/cartContext';
 import {loadStripe} from "@stripe/stripe-js";
+import { FiChevronLeft, FiChevronRight, FiTrash2 } from "react-icons/fi";
 
 const Cart = () => {
-    const {state: {cart}} = useContext(CartContext);
+    const {state: {cart}, increaseQuantity, decreaseQuantity, deleteProduct} = useContext(CartContext);
     const stripeLoadedPromise = loadStripe('pk_test_51I8TOiDe9aGghQptwisV4wiyScKC7rmZoWsVMLHGlCzTKlysIqjGppVypcchS5xvVbwu911hQMZHEnLKs5KV1f3x004repFDGg')
 
     function handleClick(event) {
@@ -55,8 +56,20 @@ const Cart = () => {
                                             <span>{item.title}</span>
                                         </div>
                                         <span>$ {item.price}</span>
-                                        <span>{item.quantity}</span>
-                                        <span>$ {item.quantity * item.price}</span>
+                                        <span className='cart__qty-span'>
+                                            <FiChevronLeft
+                                                className='cart__qty-icon'
+                                                onClick={() => decreaseQuantity(item.id)}
+                                            />
+                                            {item.quantity}
+                                            <FiChevronRight
+                                                className='cart__qty-icon'
+                                                onClick={() => increaseQuantity(item.id)}
+                                            />
+                                        </span>
+                                        <span className='cart__sub-span'>
+                                            $ {item.quantity * item.price} <FiTrash2 onClick={() => deleteProduct(item)} className='cart__trash-icon'/>
+                                        </span>
                                     </div>
                                 )
                             })}
