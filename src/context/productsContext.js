@@ -6,6 +6,8 @@ const productsReducer = (state, action) => {
             return {...state, products: [...state.products, ...action.payload]}
         case 'loadProduct':
             return {...state, product: action.payload}
+        case 'setCategories':
+            return {...state, categories: action.payload}
         case 'sortAscending':
             return {...state, products: state.products.sort((a, b) => a.price - b.price)}
         case 'sortDescending':
@@ -45,11 +47,24 @@ const sortByPrice = dispatch => {
     }
 }
 
+const getCategories = dispatch => {
+    return async () => {
+        try {
+            const response = await fetch('https://api.escuelajs.co/api/v1/categories');
+            const data = await response.json();
+            dispatch({type: 'setCategories', payload: data})
+        } catch (err) {
+            console.log(err)
+        }
+    }
+}
+
 export const {Provider, Context} = createDataContext(
     productsReducer,
-    {loadProducts, loadProduct, sortByPrice},
+    {loadProducts, loadProduct, sortByPrice, getCategories},
     {
         products: [],
-        product: {}
+        product: {},
+        categories: [],
     }
 )

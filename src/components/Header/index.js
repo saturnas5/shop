@@ -1,12 +1,17 @@
-import React, {useContext} from "react";
+import React, {useContext, useEffect} from "react";
 import {NavLink, Link} from 'react-router-dom';
 import {FiShoppingCart} from 'react-icons/fi'
 import logo from '../../assets/img/logo.png';
 import {Context as CartContext} from '../../context/cartContext';
+import {Context as ProductsContext} from '../../context/productsContext'
 
 const Header = () => {
     const {state} = useContext(CartContext);
-    console.log(state.cart)
+    const {state: {categories}, getCategories} = useContext(ProductsContext)
+
+    useEffect(() => {
+        getCategories()
+    }, []);
 
     return (
         <>
@@ -17,8 +22,9 @@ const Header = () => {
                     </div>
                     <div className="header__search">
                         <input className='header__search-input' type="text" placeholder='Search'/>
-                        <Link className='header__cart-icon-link' to='/cart'><FiShoppingCart className='header__cart-icon'/></Link>
-                        <span className="header__cart-icon-label">{state.cart.length}</span>
+                        <Link className='header__cart-icon-link' to='/cart'><FiShoppingCart className='header__cart-icon'/>
+                        {state.cart.length > 0 && <span className="header__cart-icon-label">{state.cart.length}</span>}
+                        </Link>
                     </div>
                 </div>
                 <div className="header__row header__row--2">
@@ -27,21 +33,31 @@ const Header = () => {
                             <li className="header__nav-list-item">
                                 <NavLink activeClassName='active-link' className='header__nav-list-item-link' to='/'>Home</NavLink>
                             </li>
-                            <li className="header__nav-list-item">
-                                <NavLink activeClassName='active-link' className='header__nav-list-item-link' to='/kitchen'>Kitchen</NavLink>
-                            </li>
-                            <li className="header__nav-list-item">
-                                <NavLink activeClassName='active-link' className='header__nav-list-item-link' to='/livingroom'>Living Room</NavLink>
-                            </li>
-                            <li className="header__nav-list-item">
-                                <NavLink activeClassName='active-link' className='header__nav-list-item-link' to='/badroom'>Badroom</NavLink>
-                            </li>
-                            <li className="header__nav-list-item">
-                                <NavLink activeClassName='active-link' className='header__nav-list-item-link' to='/kidsroom'>Kids Room</NavLink>
-                            </li>
-                            <li className="header__nav-list-item">
-                                <NavLink activeClassName='active-link' className='header__nav-list-item-link' to='/bathroom'>Bathroom</NavLink>
-                            </li>
+                            {categories.map(category => {
+                                return (
+                                    <li key={category.id} className="header__nav-list-item">
+                                        <NavLink activeClassName='active-link' className='header__nav-list-item-link' to={`/${category.name.toLowerCase()}`}>{category.name}</NavLink>
+                                    </li>
+                                )
+                            })}
+                            {/*<li className="header__nav-list-item">*/}
+                            {/*    <NavLink activeClassName='active-link' className='header__nav-list-item-link' to='/'>Home</NavLink>*/}
+                            {/*</li>*/}
+                            {/*<li className="header__nav-list-item">*/}
+                            {/*    <NavLink activeClassName='active-link' className='header__nav-list-item-link' to='/kitchen'>Kitchen</NavLink>*/}
+                            {/*</li>*/}
+                            {/*<li className="header__nav-list-item">*/}
+                            {/*    <NavLink activeClassName='active-link' className='header__nav-list-item-link' to='/livingroom'>Living Room</NavLink>*/}
+                            {/*</li>*/}
+                            {/*<li className="header__nav-list-item">*/}
+                            {/*    <NavLink activeClassName='active-link' className='header__nav-list-item-link' to='/badroom'>Badroom</NavLink>*/}
+                            {/*</li>*/}
+                            {/*<li className="header__nav-list-item">*/}
+                            {/*    <NavLink activeClassName='active-link' className='header__nav-list-item-link' to='/kidsroom'>Kids Room</NavLink>*/}
+                            {/*</li>*/}
+                            {/*<li className="header__nav-list-item">*/}
+                            {/*    <NavLink activeClassName='active-link' className='header__nav-list-item-link' to='/bathroom'>Bathroom</NavLink>*/}
+                            {/*</li>*/}
                         </ul>
                     </nav>
                     <div className="header__login">

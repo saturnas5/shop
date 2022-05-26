@@ -3,7 +3,7 @@ import {useRouteMatch} from 'react-router-dom';
 import {Context as ProductsContext} from "../../context/productsContext";
 import Product from "../../components/Product";
 import Filter from "../../components/Filter";
-import { FiChevronUp } from "react-icons/fi";
+import { FiChevronUp, FiFilter } from "react-icons/fi";
 
 const ProductsPage = ({path, url}) => {
     const match = useRouteMatch();
@@ -12,6 +12,9 @@ const ProductsPage = ({path, url}) => {
     const [minPrice, setMinPrice] = useState(0);
     const [maxPrice, setMaxPrice] = useState(10000)
     const [visible, setVisible] = useState(false)
+    const [active, setActive] = useState(false);
+    let categorie = match.url.replace('/', '')
+    console.log(categorie)
 
     const toggleVisible = () => {
         const scrolled = document.documentElement.scrollTop;
@@ -19,6 +22,14 @@ const ProductsPage = ({path, url}) => {
             setVisible(true)
         } else if(scrolled <= 300) {
             setVisible(false)
+        }
+    }
+
+    const handleActive = () => {
+        if(active === false) {
+            setActive(true)
+        } else if(active === true) {
+            setActive(false)
         }
     }
 
@@ -36,12 +47,6 @@ const ProductsPage = ({path, url}) => {
     }
 
     useEffect(() => {
-        setOffset(0)
-    }, [match.url])
-    console.log(match)
-
-
-    useEffect(() => {
         loadProducts(offset);
         window.addEventListener('scroll', handleScroll)
         window.addEventListener('scroll', toggleVisible)
@@ -51,10 +56,13 @@ const ProductsPage = ({path, url}) => {
         <>
             {state.products && <div className="products" id='test'>
                 <div className="products__filter">
-                    <Filter setMinPrice={setMinPrice} minPrice={minPrice} setMaxPrice={setMaxPrice} maxPrice={maxPrice}/>
+                    <Filter active={active} setMinPrice={setMinPrice} minPrice={minPrice} setMaxPrice={setMaxPrice} maxPrice={maxPrice}/>
+                    <div className={`products__filter-icon-box ${active ? 'active' : ''}`} onClick={() => handleActive()}>
+                        <FiFilter className='products__filter-icon'/>
+                    </div>
                 </div>
                 <div className="products__products-list">
-                    {state.products.filter(item => item.price >= minPrice && item.price <= maxPrice).map((product, index) => {
+                    {state.products.filter(item => item.price >= minPrice && item.price <= maxPrice).filter(item => item.category.name.toLowerCase() === categorie).map((product, index) => {
                             return <Product
                                 key={index}
                                 title={product.title}

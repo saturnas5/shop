@@ -1,6 +1,24 @@
 .filter {
   padding: 1rem .3rem;
   position: relative;
+  z-index: 999;
+  background-color: #ffffff;
+  transition: all .3s;
+
+  @media only screen and (max-width: 56.25em) {
+    position: fixed;
+    top: 25rem;
+    left: -20rem;
+    opacity: 0;
+    visibility: hidden;
+
+    &.active {
+      left: 0;
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
 
   &__sort-select {
     padding: 1rem 1.5rem;

@@ -95,8 +95,7 @@ const Cart = () => {
                     <div className="cart__cart-info-text">
                         <span>Total order sum: {totalPrice + 5.99}</span>
                     </div>
-                    <button onClick={(e) => handleClick(e)}>pay</button>
-                    {/*<StripeCheckOutButton price={totalPrice + 5.99}/>*/}
+                    <button className='cart__stripe-checkout' onClick={(e) => handleClick(e)}>checkout</button>
                 </div>
             </div>
         </>

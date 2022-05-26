@@ -24,19 +24,19 @@ const App = () => {
           <Route exact path='/'>
               <Main/>
           </Route>
-          <Route exact path='/badroom' params={{section: 'badroom'}} >
+          <Route exact path='/clothes' >
               <ProductsPage/>
           </Route>
-          <Route exact path='/bathroom'>
-              <Bathroom/>
+          <Route exact path='/electronics'>
+              <ProductsPage/>
           </Route>
-          <Route exact path='/kidsroom'>
-              <Kidsroom/>
+          <Route exact path='/furniture'>
+              <ProductsPage/>
           </Route>
-          <Route exact path='/kitchen'>
-              <Kitchen/>
+          <Route exact path='/shoes'>
+              <ProductsPage/>
           </Route>
-          <Route exact path='/livingroom' params={{section: 'livingroom'}}>
+          <Route exact path='/others'>
               <ProductsPage/>
           </Route>
           <Route path='/:category/:name/:id'>

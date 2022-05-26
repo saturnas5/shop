@@ -2,7 +2,7 @@ import React, {useContext, useState, useEffect} from "react";
 import {Context as ProductsContext} from "../../context/productsContext";
 import SortItems from "../../Utils/utils";
 
-const Filter = ({ setMaxPrice, setMinPrice }) => {
+const Filter = ({ setMaxPrice, setMinPrice, active }) => {
     const {state, sortByPrice} = useContext(ProductsContext);
     const [min, setMin] = useState(0)
     const [max, setMax] = useState(0)
@@ -20,7 +20,7 @@ const Filter = ({ setMaxPrice, setMinPrice }) => {
 
     return (
         <>
-            <div className="filter">
+            <div className={`filter ${active ? 'active' : ''}`}>
                 <select id='sort-select' className='filter__sort-select' onChange={(e) => sortByPrice(e.target.value)}>
                     <option>Select option</option>
                     <option value="sortDescending">Price Descending</option>
