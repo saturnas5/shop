@@ -8,7 +8,8 @@ import {Context as ProductsContext} from '../../context/productsContext'
 const Header = () => {
     const {state} = useContext(CartContext);
     const {state: {categories}, getCategories} = useContext(ProductsContext)
-    const [fixed, setFixed] = useState(false)
+    const [fixed, setFixed] = useState(false);
+    const [open, setOpen] = useState(false);
 
     const toggleFixed = () => {
         const scrolled = document.documentElement.scrollTop;
@@ -16,6 +17,14 @@ const Header = () => {
             setFixed(true)
         } else if(scrolled <= document.querySelector('.header').clientHeight) {
             setFixed(false)
+        }
+    }
+
+    const toggleOpen = () => {
+        if(open === false) {
+            setOpen(true)
+        } else {
+            setOpen(false)
         }
     }
 
@@ -39,6 +48,24 @@ const Header = () => {
                         <Link className='header__cart-icon-link' to='/cart'><FiShoppingCart className='header__cart-icon'/>
                         {state.cart.length > 0 && <span className="header__cart-icon-label">{state.cart.length}</span>}
                         </Link>
+                        <div className="mobile-nav">
+                            <div className="mobile-nav__button" onClick={toggleOpen}>
+                                <span className='mobile-nav__icon'></span>
+                            </div>
+                            <div className={`mobile-nav__background ${open ? 'open' : ''}`}>&nbsp;</div>
+                            <nav className='mobile-nav__navigation'>
+                                <ul className="mobile-nav__list">
+                                    <li className="mobile-nav__item">
+                                        <Link onClick={toggleOpen} className='mobile-nav__link' to='/'>Home</Link>
+                                    </li>
+                                    {categories.map(category => {
+                                        return <li className="mobile-nav__item">
+                                            <Link onClick={toggleOpen} className='mobile-nav__link' to={`/${category.name.toLowerCase()}`}>{category.name}</Link>
+                                        </li>
+                                    })}
+                                </ul>
+                            </nav>
+                        </div>
                     </div>
                 </div>
                 <div className="header__row header__row--2">
