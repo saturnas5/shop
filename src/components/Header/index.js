@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import {NavLink, Link} from 'react-router-dom';
 import {FiShoppingCart} from 'react-icons/fi'
 import logo from '../../assets/img/logo.png';
@@ -8,6 +8,20 @@ import {Context as ProductsContext} from '../../context/productsContext'
 const Header = () => {
     const {state} = useContext(CartContext);
     const {state: {categories}, getCategories} = useContext(ProductsContext)
+    const [fixed, setFixed] = useState(false)
+
+    const toggleFixed = () => {
+        const scrolled = document.documentElement.scrollTop;
+        if(scrolled > document.querySelector('.header').clientHeight) {
+            setFixed(true)
+        } else if(scrolled <= document.querySelector('.header').clientHeight) {
+            setFixed(false)
+        }
+    }
+
+    useEffect(() => {
+        window.addEventListener('scroll', toggleFixed)
+    }, [])
 
     useEffect(() => {
         getCategories()
@@ -15,7 +29,7 @@ const Header = () => {
 
     return (
         <>
-            <header className='header'>
+            <header className={`header ${fixed ? 'fixed' : ''}`}>
                 <div className="header__row header__row--1">
                     <div className="header__logo">
                         <Link to='/'><img src={logo} alt="" className="header__logo-img"/></Link>

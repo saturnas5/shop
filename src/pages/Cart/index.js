@@ -40,7 +40,7 @@ const Cart = () => {
                     <h3 className="cart__cart-title">
                         Cart
                     </h3>
-                    <div className="cart__cart-table">
+                    {cart.length > 0 ? <div className="cart__cart-table">
                         <div className="cart__cart-table-header">
                             <span className="cart__cart-table-header-product">Product</span>
                             <span className="cart__cart-table-header-price">Price</span>
@@ -68,7 +68,8 @@ const Cart = () => {
                                             />
                                         </span>
                                         <span className='cart__sub-span'>
-                                            $ {item.quantity * item.price} <FiTrash2 onClick={() => deleteProduct(item)} className='cart__trash-icon'/>
+                                            $ {item.quantity * item.price} <FiTrash2 onClick={() => deleteProduct(item)}
+                                                                                     className='cart__trash-icon'/>
                                         </span>
                                     </div>
                                 )
@@ -77,7 +78,7 @@ const Cart = () => {
                         <div className="cart__cart-total">
                             <span>Total: $ {totalPrice}</span>
                         </div>
-                    </div>
+                    </div> : <span className='cart__empty-text'>Your cart is empty</span>}
                 </div>
                 <div className="cart__cart-info">
                     <h3 className="cart__cart-title">
@@ -90,12 +91,12 @@ const Cart = () => {
                         <span>Total price for producs: $ {totalPrice}</span>
                     </div>
                     <div className="cart__cart-info-text">
-                        <span>Shipping: $ 5.99</span>
+                        {cart.length > 0 ? <span>Shipping: $ 5.99</span> : <span>Shipping: $ 0</span>}
                     </div>
                     <div className="cart__cart-info-text">
-                        <span>Total order sum: {totalPrice + 5.99}</span>
+                        {cart.length > 0 ? <span>Total order sum: {totalPrice + 5.99}</span> : <span>Total order sum: $ 0</span>}
                     </div>
-                    <button className='cart__stripe-checkout' onClick={(e) => handleClick(e)}>checkout</button>
+                    <button disabled={cart.length < 1} className='cart__stripe-checkout' onClick={(e) => handleClick(e)}>checkout</button>
                 </div>
             </div>
         </>

@@ -1,4 +1,31 @@
 .header {
+  border-bottom: 1px solid #ededed;
+
+  &.fixed {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 2000;
+    background-color: #ffffff;
+    height: 7rem;
+    transition: all .3s;
+
+    & .header__row--1 {
+      padding: 1rem 5rem;
+    }
+    & .header__row--2 {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    &:hover {
+      height: 12rem;
+    }
+    &:hover .header__row--2 {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
 
   &__row {
     display: flex;
@@ -11,6 +38,7 @@
     &--2 {
       padding: 0 5rem;
       padding-bottom: 3rem;
+      transition: all .2s;
     }
   }
 

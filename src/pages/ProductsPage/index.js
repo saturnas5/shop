@@ -13,8 +13,6 @@ const ProductsPage = ({path, url}) => {
     const [maxPrice, setMaxPrice] = useState(10000)
     const [visible, setVisible] = useState(false)
     const [active, setActive] = useState(false);
-    let categorie = match.url.replace('/', '')
-    console.log(categorie)
 
     const toggleVisible = () => {
         const scrolled = document.documentElement.scrollTop;
@@ -40,6 +38,7 @@ const ProductsPage = ({path, url}) => {
         });
     };
 
+
     const handleScroll = (e) => {
         if(window.innerHeight + e.target.documentElement.scrollTop >= e.target.documentElement.scrollHeight - 400) {
             setOffset(offset + 15)
@@ -48,8 +47,9 @@ const ProductsPage = ({path, url}) => {
 
     useEffect(() => {
         loadProducts(offset);
-        window.addEventListener('scroll', handleScroll)
+        window.addEventListener('scroll', e => handleScroll(e))
         window.addEventListener('scroll', toggleVisible)
+
     }, [offset])
 
     return (
@@ -62,7 +62,7 @@ const ProductsPage = ({path, url}) => {
                     </div>
                 </div>
                 <div className="products__products-list">
-                    {state.products.filter(item => item.price >= minPrice && item.price <= maxPrice).filter(item => item.category.name.toLowerCase() === categorie).map((product, index) => {
+                    {state.products.filter(item => item.price >= minPrice && item.price <= maxPrice).map((product, index) => {
                             return <Product
                                 key={index}
                                 title={product.title}

@@ -2,6 +2,10 @@
   display: grid;
   grid-template-columns: 10vw repeat(5, 1fr) 10vw;
 
+  &__empty-text {
+    font-size: 1.8rem;
+  }
+
   &__product-box {
     grid-column: 2 / 5;
     padding-right: 2rem;
@@ -81,6 +85,7 @@
     padding-left: 2rem;
     padding-top: 5rem;
     font-size: 1.6rem;
+    padding-bottom: 15rem;
 
     &-text {
       margin-bottom: 2rem;
@@ -149,6 +154,13 @@
     }
     &:active {
       transform: translateY(0);
+    }
+    &:disabled {
+      background-color: lightgray;
+
+      &:hover {
+        transform: translateY(0);
+      }
     }
   }
 }
