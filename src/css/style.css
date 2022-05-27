@@ -177,7 +177,8 @@ body {
       height: 2px;
       background-color: black;
       display: inline-block;
-      position: absolute; }
+      position: absolute;
+      transition: all .2s; }
     .mobile-nav__icon::after {
       top: 1rem; }
     .mobile-nav__icon::before {
@@ -220,6 +221,17 @@ body {
     font-size: 2.6rem;
     display: inline-block;
     padding: 1rem 0; }
+
+.open.mobile-nav__icon::before {
+  top: 0;
+  transform: rotate(135deg); }
+
+.open.mobile-nav__icon::after {
+  top: 0;
+  transform: rotate(-135deg); }
+
+.open.mobile-nav__icon {
+  background-color: transparent; }
 
 .hero {
   display: grid;

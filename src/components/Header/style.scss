@@ -205,6 +205,7 @@
       background-color: black;
       display: inline-block;
       position: absolute;
+      transition: all .2s;
     }
     &::after {
       top: 1rem;
@@ -212,6 +213,7 @@
     &::before {
       top: -1rem;
     }
+
   }
 
   &__background {
@@ -264,4 +266,16 @@
     display: inline-block;
     padding: 1rem 0;
   }
+}
+
+.open.mobile-nav__icon::before {
+  top: 0;
+  transform: rotate(135deg);
+}
+.open.mobile-nav__icon::after {
+  top: 0;
+  transform: rotate(-135deg);
+}
+.open.mobile-nav__icon {
+  background-color: transparent;
 }

@@ -50,7 +50,7 @@ const Header = () => {
                         </Link>
                         <div className="mobile-nav">
                             <div className="mobile-nav__button" onClick={toggleOpen}>
-                                <span className='mobile-nav__icon'></span>
+                                <span className={`mobile-nav__icon ${open ? 'open' : ''}`}></span>
                             </div>
                             <div className={`mobile-nav__background ${open ? 'open' : ''}`}>&nbsp;</div>
                             <nav className='mobile-nav__navigation'>
