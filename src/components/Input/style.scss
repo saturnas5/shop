@@ -1,0 +1,36 @@
+.form__input-box {
+  position: relative;
+}
+
+.form-input {
+  padding: 1rem 2rem;
+  font-size: 1.8rem;
+  border: 1px solid grey;
+  transition: all .3s;
+  font-family: inherit;
+
+  &:focus {
+    outline: none;
+    border: 1px solid black;
+
+    &::placeholder {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+
+  &__label {
+    font-size: 1.8rem;
+    position: absolute;
+    top: 24%;
+    left: 2rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .2s;
+  }
+  &:focus + .form-input__label {
+    transform: translateY(3.5rem) scale(.9);
+    opacity: 1;
+    visibility: visible;
+  }
+}

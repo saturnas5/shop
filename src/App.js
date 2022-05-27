@@ -14,6 +14,7 @@ import ProductDetails from "./pages/ProductDetails";
 import Footer from "./components/Footer";
 import NotFound from "./pages/NotFound";
 import Cart from "./pages/Cart";
+import Login from "./pages/Login";
 
 
 const App = () => {
@@ -44,6 +45,9 @@ const App = () => {
           </Route>
           <Route exact path='/cart'>
               <Cart/>
+          </Route>
+          <Route exact path='/login'>
+              <Login/>
           </Route>
 
           <Route>

@@ -61,7 +61,7 @@ const Header = () => {
                         </ul>
                     </nav>
                     <div className="header__login">
-                        <Link to='/' className='header__login-link'><span>login</span></Link>
+                        <Link to='/login' className='header__login-link'><span>login</span></Link>
                     </div>
                 </div>
             </header>
