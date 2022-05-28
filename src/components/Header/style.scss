@@ -279,3 +279,7 @@
 .open.mobile-nav__icon {
   background-color: transparent;
 }
+
+.fixed + .products__products-list {
+  margin-top: 200px;
+}

@@ -4,6 +4,7 @@ import {FiShoppingCart} from 'react-icons/fi'
 import logo from '../../assets/img/logo.png';
 import {Context as CartContext} from '../../context/cartContext';
 import {Context as ProductsContext} from '../../context/productsContext'
+import SearchInput from "../SearchInput";
 
 const Header = () => {
     const {state} = useContext(CartContext);
@@ -13,13 +14,15 @@ const Header = () => {
 
     const toggleFixed = () => {
         const scrolled = document.documentElement.scrollTop;
-        if(scrolled > document.querySelector('.header').clientHeight) {
+        if(scrolled > document.querySelector('.header').clientHeight && document.body.offsetHeight > 1200) {
             setFixed(true)
+            document.body.style = 'margin-top: 250px'
         } else if(scrolled <= document.querySelector('.header').clientHeight) {
             setFixed(false)
+            document.body.style = 'margin-top: 0';
         }
     }
-
+    console.log('off', document.body.offsetHeight)
     const toggleOpen = () => {
         if(open === false) {
             setOpen(true)
@@ -44,7 +47,7 @@ const Header = () => {
                         <Link to='/'><img src={logo} alt="" className="header__logo-img"/></Link>
                     </div>
                     <div className="header__search">
-                        <input className='header__search-input' type="text" placeholder='Search'/>
+                        <SearchInput/>
                         <Link className='header__cart-icon-link' to='/cart'><FiShoppingCart className='header__cart-icon'/>
                         {state.cart.length > 0 && <span className="header__cart-icon-label">{state.cart.length}</span>}
                         </Link>
@@ -81,24 +84,6 @@ const Header = () => {
                                     </li>
                                 )
                             })}
-                            {/*<li className="header__nav-list-item">*/}
-                            {/*    <NavLink activeClassName='active-link' className='header__nav-list-item-link' to='/'>Home</NavLink>*/}
-                            {/*</li>*/}
-                            {/*<li className="header__nav-list-item">*/}
-                            {/*    <NavLink activeClassName='active-link' className='header__nav-list-item-link' to='/kitchen'>Kitchen</NavLink>*/}
-                            {/*</li>*/}
-                            {/*<li className="header__nav-list-item">*/}
-                            {/*    <NavLink activeClassName='active-link' className='header__nav-list-item-link' to='/livingroom'>Living Room</NavLink>*/}
-                            {/*</li>*/}
-                            {/*<li className="header__nav-list-item">*/}
-                            {/*    <NavLink activeClassName='active-link' className='header__nav-list-item-link' to='/badroom'>Badroom</NavLink>*/}
-                            {/*</li>*/}
-                            {/*<li className="header__nav-list-item">*/}
-                            {/*    <NavLink activeClassName='active-link' className='header__nav-list-item-link' to='/kidsroom'>Kids Room</NavLink>*/}
-                            {/*</li>*/}
-                            {/*<li className="header__nav-list-item">*/}
-                            {/*    <NavLink activeClassName='active-link' className='header__nav-list-item-link' to='/bathroom'>Bathroom</NavLink>*/}
-                            {/*</li>*/}
                         </ul>
                     </nav>
                     <div className="header__login">

@@ -38,7 +38,6 @@ const ProductsPage = ({path, url}) => {
         });
     };
 
-
     const handleScroll = (e) => {
         if(window.innerHeight + e.target.documentElement.scrollTop >= e.target.documentElement.scrollHeight - 400) {
             setOffset(offset + 15)
@@ -49,7 +48,6 @@ const ProductsPage = ({path, url}) => {
         loadProducts(offset);
         window.addEventListener('scroll', e => handleScroll(e))
         window.addEventListener('scroll', toggleVisible)
-
     }, [offset])
 
     return (
