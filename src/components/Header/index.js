@@ -22,7 +22,7 @@ const Header = () => {
             document.body.style = 'margin-top: 0';
         }
     }
-    console.log('off', document.body.offsetHeight)
+
     const toggleOpen = () => {
         if(open === false) {
             setOpen(true)
@@ -55,14 +55,14 @@ const Header = () => {
                             <div className="mobile-nav__button" onClick={toggleOpen}>
                                 <span className={`mobile-nav__icon ${open ? 'open' : ''}`}></span>
                             </div>
-                            <div className={`mobile-nav__background ${open ? 'open' : ''}`}>&nbsp;</div>
+                            <div className={`mobile-nav__background ${open ? 'open' : ''}`}></div>
                             <nav className='mobile-nav__navigation'>
                                 <ul className="mobile-nav__list">
                                     <li className="mobile-nav__item">
                                         <Link onClick={toggleOpen} className='mobile-nav__link' to='/'>Home</Link>
                                     </li>
                                     {categories.map(category => {
-                                        return <li className="mobile-nav__item">
+                                        return <li key={category.id} className="mobile-nav__item">
                                             <Link onClick={toggleOpen} className='mobile-nav__link' to={`/${category.name.toLowerCase()}`}>{category.name}</Link>
                                         </li>
                                     })}

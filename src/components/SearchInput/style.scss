@@ -1,0 +1,82 @@
+.search-input {
+  position: relative;
+
+  &__input {
+    width: 30rem;
+    padding: .7rem;
+
+    &:focus {
+      outline: none;
+    }
+    &:focus ~ .search-input__output {
+      opacity: 1;
+      visibility: visible;
+    }
+
+  }
+
+  &__output {
+    background-color: #ffffff;
+    box-shadow: inset 0 0 1px rgba(0,0,0, 1);
+    padding: 1rem;
+    z-index: 3000;
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 3.4rem;
+    left: -41rem;
+    width: 71rem;
+    max-height: 43rem;
+    overflow-y: scroll;
+
+    scrollbar-width: thin;
+
+    &::-webkit-scrollbar {
+      width: 5px;
+      height: 8px;
+      background-color: #ededed;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: #aaaaaa;
+    }
+
+    &:active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+  }
+
+  &__list {
+    list-style: none;
+  }
+
+  &__item {
+
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    font-size: 1.6rem;
+    color: black;
+  }
+
+  &__img {
+    height: 5rem;
+    display: block;
+  }
+
+  &__name {
+    margin-left: 3rem;
+  }
+
+  &__price {
+    margin-left: auto;
+  }
+}

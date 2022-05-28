@@ -63,18 +63,6 @@
     position: relative;
     align-items: center;
 
-    &-input {
-      width: 30rem;
-      padding: .7rem;
-
-      &:focus {
-        outline: none;
-      }
-
-      &::placeholder {
-
-      }
-    }
   }
 
   &__cart-icon {
