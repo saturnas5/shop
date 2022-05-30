@@ -45,6 +45,7 @@ const Header = () => {
                 <div className="header__row header__row--1">
                     <div className="header__logo">
                         <Link to='/'><img src={logo} alt="" className="header__logo-img"/></Link>
+                        <Link to='/' className='header__mobile-logo'>L</Link>
                     </div>
                     <div className="header__search">
                         <SearchInput/>

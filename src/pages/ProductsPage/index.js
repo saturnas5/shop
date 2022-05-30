@@ -4,6 +4,7 @@ import {Context as ProductsContext} from "../../context/productsContext";
 import Product from "../../components/Product";
 import Filter from "../../components/Filter";
 import { FiChevronUp, FiFilter } from "react-icons/fi";
+import ScrollTop from "../../components/ScrollTop";
 
 const ProductsPage = ({path, url}) => {
     const match = useRouteMatch();
@@ -73,6 +74,7 @@ const ProductsPage = ({path, url}) => {
                     <button style={{display: visible ? 'inline' : 'none'}} className='scroll-btn' onClick={scrollToTop}><FiChevronUp className='scroll-btn-icon'/></button>
                 </div>
             </div>}
+            <ScrollTop/>
         </>
     );
 }

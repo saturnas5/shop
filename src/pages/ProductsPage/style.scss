@@ -9,9 +9,13 @@
   }
   @media only screen and (max-width: 56.25em) {
     grid-template-columns: 2vw 1fr 2vw;
+    grid-column-gap: 0;
   }
   @media only screen and (max-width: 37.5em) {
     grid-template-columns: 1rem 1fr 1rem;
+  }
+  @media only screen and (max-width: 30em) {
+    grid-template-columns: 1fr;
   }
 
   &__filter {
@@ -39,6 +43,12 @@
       grid-column: 2 / 3;
       grid-row: 1 / 2;
       padding: 4rem 5rem;
+    }
+    @media only screen and (max-width: 30em) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-column-gap: 2rem;
+      padding: 4rem 2rem;
+      grid-column: 1 / -1;
     }
   }
 
@@ -175,6 +185,11 @@
     width: 5rem;
     height: 5rem;
     right: 1%;
+  }
+  @media only screen and (max-width: 30em) {
+    right: 7%;
+    width: 8rem;
+    height: 8rem;
   }
 
   &-icon {

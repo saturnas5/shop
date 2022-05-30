@@ -2,6 +2,7 @@ import React, {useContext, useEffect, useState} from "react";
 import {Context as ProductsContext} from "../../context/productsContext";
 import {Context as CartContext} from "../../context/cartContext";
 import {useRouteMatch, Switch, Route, Link} from 'react-router-dom';
+import ScrollTop from "../../components/ScrollTop";
 
 const ProductDetails = () => {
     const {state, loadProduct} = useContext(ProductsContext);
@@ -79,6 +80,7 @@ const ProductDetails = () => {
             {/*    </Switch>*/}
             {/*</div>*/}
         </div>
+        <ScrollTop/>
     </>
     );
 }

@@ -54,6 +54,22 @@
 
     &-img {
       height: 5rem;
+
+      @media only screen and (max-width: 37.5em) {
+        display: none;
+      }
+    }
+  }
+
+  &__mobile-logo {
+    text-decoration: none;
+    font-size: 5rem;
+    font-weight: 700;
+    color: black;
+    display: none;
+
+    @media only screen and (max-width: 37.5em) {
+      display: block;
     }
   }
 
@@ -101,6 +117,10 @@
       font-weight: 500;
       color: #ededed;
       transition: all .2s;
+
+      @media only screen and (max-width: 30em) {
+        right: 14%;
+      }
 
       &:hover {
         cursor: pointer;
@@ -217,6 +237,7 @@
 
     &.open {
       transform: scale(140);
+
     }
     &.open ~ .mobile-nav__navigation {
       opacity: 1;
@@ -254,6 +275,7 @@
     display: inline-block;
     padding: 1rem 0;
   }
+
 }
 
 .open.mobile-nav__icon::before {
@@ -271,3 +293,4 @@
 .fixed + .products__products-list {
   margin-top: 200px;
 }
+
